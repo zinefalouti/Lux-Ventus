@@ -1,0 +1,1773 @@
+/*
+Theme Name: Lux Ventus
+Theme URI: #
+Author: Zine E Falouti
+Author URI: 
+Description: A blog theme style WP Theme 
+Requires at least: 6.1
+Tested up to: 6.1
+Requires PHP: 5.6
+Version: 1.0
+License: Free for non commercial use (Author non credited) and free for commercial use (If Author is credited)
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+Text Domain: Lux Ventus
+Tags:Lux Ventus,blog,hard coded,magazine type
+*/
+
+/* Global Sass Variables */
+$background: #f9f9f9;
+$defaultcolor: #262626;
+$lightcolor: #bcbcbc;
+$accentcolor: #4CE0D7;
+
+/*Importing Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Global Sass Mixins */
+
+
+@mixin buttonController($backgroundcolor, $textcolor: #262626) {
+    background-color: $backgroundcolor;
+    border-radius: 40px;
+    border: none;
+    padding: 10px 40px 10px 40px;
+    text-align: center;
+    border-style: none;
+    border-width: 0;
+    text-decoration: none;
+    border-color: $backgroundcolor;
+    outline: none;
+    color: $textcolor;
+}
+
+@mixin textController($size, $case, $color, $weight, $spacing) {
+    font-size: $size;
+    text-transform: $case;
+    color: $color;
+    font-weight: $weight;
+    letter-spacing: $spacing ;
+}
+
+@mixin divAligner($aligntype, $display) {
+    display: $display;
+    float: $aligntype;
+    text-align: $aligntype;
+    clear: $aligntype;
+}
+
+@mixin inputController($background: #ffffff, $bordercolor: #bcbcbc, $placeholdercolor: #bcbcbc, $textcolor: #262626) {
+    width: 100%;
+    border-width: 2px;
+    border-color: $bordercolor;
+    border-radius: 40px;
+    background: $background;
+    color: $textcolor;
+    padding: 15px;
+    border-style: solid !important;
+    outline: none;
+
+    ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $placeholdercolor;
+        opacity: 1;
+        /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: $placeholdercolor;
+    }
+
+    ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: $placeholdercolor;
+    }
+}
+
+
+@mixin divController($background, $radius, $height, $width) {
+    background: $background;
+    border: none;
+    border-radius: $radius;
+    min-height: $height;
+    width: $width;
+}
+
+
+
+/* End of Sass Mixins */
+
+body {
+    background: $background;
+    font-family: Poppins;
+    color: $defaultcolor;
+}
+
+h1 {
+    @include textController(36px, none, $defaultcolor , 700, none);
+    margin: 10px 0 10px 0;
+}
+
+
+.container {
+    min-width: 70%;
+}
+
+.navbar {
+
+    display: flex;
+    justify-content: right;
+
+    ul {
+
+        display: flex;
+
+        li {
+            list-style-type: none;
+            margin: 10px 35px 0px 0px;
+
+
+            a {
+                @include textController(16px, none, $defaultcolor, 700, none);
+            }
+
+            a:hover {
+                @include textController(16px, none, $accentcolor, 700, none);
+                text-decoration: none;
+                transition: 0.5s ease-in-out;
+            }
+
+        }
+    }
+
+    button {
+        @include textController(16px, none, $defaultcolor , 700, none);
+        @include buttonController($accentcolor);
+        margin-left: 20px;
+        margin-right: 20px;
+
+    }
+
+    button:hover {
+        @include textController(16px, none, #ffffff, 700, none);
+        @include buttonController(#36ACA5);
+        cursor: pointer;
+        transform: scale(1.13, 1.13);
+        transition: 0.5s ease-in-out;
+    }
+
+    button:active {
+        @include textController(16px, none, #ffffff, 700, none);
+        @include buttonController(#36ACA5);
+        transition: 0.5s ease-in-out;
+    }
+
+    button:focus {
+        @include textController(16px, none, #ffffff, 700, none);
+        @include buttonController(#36ACA5);
+        transition: 0.5s ease-in-out;
+    }
+
+}
+
+
+.iconbtn:hover {
+    transform: scale(1.13, 1.13);
+    transition: 0.5s ease-in-out;
+}
+
+.logo {
+    width: 87%;
+    margin-top: 10px;
+}
+
+
+.Hamburger {
+    @include divAligner(right, block);
+}
+
+.searchModal {
+    width: 100%;
+    height: 100vh;
+    background: $accentcolor;
+    padding: 15%;
+
+    h1 {
+        @include textController(36px, none, $defaultcolor , none, none);
+    }
+
+}
+
+
+
+
+.search {
+    margin-top: 50px;
+
+    input {
+        @include inputController(#ffffff, #bcbcbc, #bcbcbc, #262626);
+    }
+
+    input:focus {
+        @include inputController(#ffffff, $accentcolor , #bcbcbc, $defaultcolor );
+        outline: none;
+    }
+
+    button {
+        @include buttonController(#36ACA5, #ffffff);
+        padding: 15px;
+        min-width: 100%;
+    }
+
+    button:hover {
+        @include buttonController(#262626, #ffffff);
+        padding: 15px;
+        min-width: 100%;
+        transform: scale(1.13, 1.13);
+        transition: 0.5s ease-in-out;
+    }
+
+
+
+}
+
+
+
+.MobileMenu {
+
+    width: 100%;
+    height: 100vh;
+    background: $accentcolor;
+    padding: 0px;
+
+    a {
+        @include textController(32px, none, $defaultcolor , 400, none);
+        text-decoration: none;
+
+    }
+
+    a:hover {
+        @include textController(32px, none, #ffffff, 700, none);
+        text-decoration: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    a:active {
+        @include textController(32px, none, $defaultcolor, 700, none);
+        text-decoration: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    ul {
+
+        padding-left: 0px;
+
+        li {
+            display: block;
+            list-style-type: none;
+            margin: 25px 0px 25px 0px;
+            padding-left: 0px;
+
+            a {
+                @include textController(32px, none, $defaultcolor , 400, none);
+                text-decoration: none;
+            }
+
+            a:hover {
+                @include textController(32px, none, #ffffff, 700, none);
+                text-decoration: none;
+                transition: 0.5s ease-in-out;
+            }
+
+            a:active {
+                @include textController(32px, none, $defaultcolor, 700, none);
+                text-decoration: none;
+                transition: 0.5s ease-in-out;
+            }
+
+        }
+    }
+
+    hr {
+        background-color: $defaultcolor;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    input {
+        @include inputController(#ffffff, #bcbcbc, #bcbcbc, #262626);
+        margin-top: 25px;
+    }
+
+    input:focus {
+        @include inputController(#ffffff, $accentcolor , #bcbcbc, $defaultcolor );
+        outline: none;
+    }
+
+    button {
+        @include buttonController(#36ACA5, #ffffff);
+        padding: 15px;
+        min-width: 100%;
+        margin-top: 25px;
+    }
+
+    button:hover[type=submit]:hover {
+        @include buttonController(#262626, #ffffff);
+        padding: 15px;
+        min-width: 100%;
+        transform: scale(1.13, 1.13);
+        transition: 0.5s ease-in-out;
+
+    }
+
+
+}
+
+.UpMarginator {
+    margin-top: 45px;
+}
+
+.DownMarginator {
+    margin-bottom: 45px;
+}
+
+
+
+.menuclose {
+
+    float: right;
+    margin-bottom: 45px;
+
+}
+
+
+
+.herobg {
+
+
+
+    h1 {
+        @include textController(36px, none, #ffffff, 400, none);
+        margin-top: 25px;
+
+        span {
+            background: linear-gradient(90deg, #4CE0D7 43.06%, #8BA9F4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 43px;
+
+        }
+
+    }
+
+    h4 {
+        @include textController(12px, uppercase, #ffffff, 700, 7px);
+    }
+
+    p {
+        @include textController(20px, none, #ffffff, 400, none);
+        margin-top: 25px;
+        width: 50%;
+    }
+
+}
+
+
+
+// Editing Classes for Mobile View
+@media(max-width:560px) {
+    .herobg {
+        text-align: center !important;
+        padding-top: 35%;
+    }
+
+    .herobg p {
+        width: 100% !important;
+    }
+
+    .topic-card {
+        button {
+            width: 100% !important;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 5px !important;
+        }
+
+        button:hover {
+            width: 100% !important;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 5px !important;
+        }
+    }
+}
+
+
+
+
+// Topic Sliders Area Starts Here
+.topic-slider {
+    margin-top: 45px;
+
+    h1 {
+        @include textController(32px, none, $defaultcolor , 700, none);
+    }
+}
+
+
+.slider-arrows {
+    text-align: right;
+    display: block;
+
+    img {
+        width: 60px;
+        height: auto;
+        margin-left: 10px;
+        margin-top: -10px;
+        cursor: pointer;
+    }
+
+    img:hover {
+        transform: scale(1.13, 1.13);
+        transition: 0.5s ease-in-out;
+    }
+}
+
+
+.topic-card {
+    @include divController(#ffffff, 20px, auto, auto);
+    padding: 20px;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    text-align: center !important;
+    align-content: center !important;
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 25px;
+
+    h1 {
+        margin-top: 25px;
+        @include textController(20px, none, $defaultcolor, 700, none);
+    }
+
+    img {
+        width: 65% !important;
+        height: auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    button {
+        @include buttonController($accentcolor, $defaultcolor );
+        margin-top: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        text-transform: uppercase !important;
+        letter-spacing: 16% !important;
+        font-size: 12px !important;
+    }
+
+    button:hover {
+        @include buttonController($defaultcolor, #ffffff);
+        font-weight: 700;
+        transform: scale(1.03, 1.03);
+        transition: 0.5s ease-in-out;
+    }
+
+}
+
+
+
+// Highlight Post Styling Start Here
+
+.post-thumbnail-w {
+    width: 100%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    height: auto;
+    min-height: 460px;
+    max-height: 460px;
+    object-fit: cover;
+    position: relative;
+    float: left;
+}
+
+
+.post-thumbnail-m {
+    width: 100%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    height: auto;
+    min-height: 260px;
+    max-height: 260px;
+    object-fit: cover;
+    position: relative;
+    float: left;
+}
+
+.highlight-post {
+    @include divController(#ffffff, 20px, auto, 100%);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 0px 0px 40px 0px;
+
+    section {
+        padding: 0 40px 0 40px;
+        margin-top: 15px;
+        width: 100%;
+        height: auto !important;
+    }
+
+    h1 {
+        @include textController($defaultcolor, none, 26px, 700, none);
+        margin-top: 35px;
+    }
+
+    p {
+        @include textController($defaultcolor, none, 16px, 400, none);
+        margin-top: 35px;
+    }
+
+    a {
+        @include textController($accentcolor, uppercase, 12px, 700, 24%);
+        text-decoration: none !important;
+        margin-top: 35px;
+        color: $accentcolor !important;
+    }
+
+    a:hover {
+        @include textController(#36ACA5, uppercase, 12px, 700, 24%);
+        text-decoration: none;
+        transition: 0.5s ease-in-out;
+        color: #36ACA5 !important;
+    }
+
+    a:active {
+        @include textController(#36ACA5, uppercase, 12px, 700, 24%);
+        text-decoration: none;
+        transition: 0.5s ease-in-out;
+        color: #36ACA5 !important;
+    }
+
+}
+
+
+
+.post-head-l {
+    padding: 0 40px 0 40px;
+    text-align: left;
+    justify-content: left;
+    display: inline-block;
+    margin-top: 20px;
+
+    span {
+        @include textController(12px, uppercase, $lightcolor, 700, 24%);
+        margin-top: 20px;
+        margin-right: 40px;
+    }
+
+    img {
+        width: 35px !important;
+        height: 35px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+}
+
+
+
+
+.post-head-r {
+    padding: 0px 40px 0 40px;
+    text-align: right;
+    justify-content: right;
+    display: block;
+    margin-top: 25px;
+    color: $defaultcolor;
+    font-size: 26px;
+    font-weight: 700;
+
+    span {
+        @include textController(20px, uppercase, #F25E5E, 700, 4px);
+    }
+
+}
+
+.category-sign {
+    @include divController($defaultcolor, 40px, auto, auto);
+    padding: 10px 40px 10px 40px;
+    z-index: 3;
+    margin-top: -43%;
+    position: absolute;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    float: left;
+    margin-left: 20px;
+
+    a {
+        @include textController(12px, uppercase, #ffffff, 700, 24%);
+        text-decoration: none !important;
+        color: #ffffff !important;
+    }
+
+    a:hover {
+        @include textController(12px, uppercase, $accentcolor, 700, 24%);
+    }
+
+    a:active {
+        @include textController(12px, uppercase, $accentcolor, 700, 24%);
+    }
+
+}
+
+
+// Editing the Highlight Post classes in Mobile view
+
+@media(max-width:760px) {
+
+    .post-head-r {
+        text-align: left !important;
+        margin-top: 10px;
+    }
+
+    .post-head-l {
+        padding: 30px;
+
+        img {
+            width: 35px !important;
+            height: 35px !important;
+        }
+    }
+
+
+    .highlight-post {
+        h1 {
+            font-size: 26px;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        section {
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+    }
+
+    .category-sign {
+        margin-top: -64%;
+        max-width: 150px;
+        height: auto;
+    }
+
+    img {
+        max-height: 260px !important;
+    }
+
+
+    .post-thumbnail-m {
+        min-height: 240px;
+        max-height: 240px;
+    }
+
+    .post-thumbnail-w {
+        min-height: 240px;
+        max-height: 240px;
+    }
+
+
+
+}
+
+// Adjusting the Category Sign in Tablet Mode //
+
+@media(max-width:960px) {
+
+    .category-sign {
+        margin-top: -35%;
+    }
+
+
+}
+
+
+
+.normal-post {
+
+    @include divController(#ffffff, 20px, 100%, 100%);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding: 0px 0px 0px 0px !important;
+
+    section {
+        padding: 20px;
+        margin-top: 15px;
+        width: 100%;
+        height: auto !important;
+    }
+
+    h1 {
+        @include textController($defaultcolor, none, 26px, 700, none);
+        margin-top: 20px;
+    }
+
+    p {
+        @include textController($defaultcolor, none, 16px, 400, none);
+        margin-top: 20px;
+    }
+
+    a {
+        @include textController($accentcolor, uppercase, 12px, 700, 24%);
+        text-decoration: none !important;
+        margin-top: 35px;
+        color: $accentcolor !important;
+    }
+
+    a:hover {
+        @include textController(#36ACA5, uppercase, 12px, 700, 24%);
+        text-decoration: none;
+        transition: 0.5s ease-in-out;
+        color: #36ACA5 !important;
+    }
+
+    a:active {
+        @include textController(#36ACA5, uppercase, 12px, 700, 24%);
+        text-decoration: none;
+        transition: 0.5s ease-in-out;
+        color: #36ACA5 !important;
+    }
+
+}
+
+
+.post-thumbnail-v {
+    width: 100%;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    min-height: 100%;
+    max-height: 460px;
+    height: auto;
+    object-fit: cover;
+    position: relative;
+    float: left;
+}
+
+
+.category-sign-v {
+    @include divController($defaultcolor, 40px, auto, auto);
+    padding: 10px 40px 10px 40px;
+    z-index: 3;
+    margin-top: 40px;
+    position: absolute;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    float: left;
+    margin-left: 20px;
+    max-width: 260px;
+    height: auto;
+
+    a {
+        @include textController(12px, uppercase, #ffffff, 700, 24%);
+        text-decoration: none !important;
+        color: #ffffff !important;
+    }
+
+    a:hover {
+        @include textController(12px, uppercase, $accentcolor, 700, 24%);
+    }
+
+    a:active {
+        @include textController(12px, uppercase, $accentcolor, 700, 24%);
+    }
+
+}
+
+// Editing the Normal Post in Mobile View
+@media(max-width:760px) {
+
+    .normal-post {
+        h1 {
+            margin-top: 10px !important;
+        }
+
+        section {
+            margin-top: 10px !important;
+        }
+    }
+
+    .post-thumbnail-v {
+        min-height: 240px;
+        max-height: 240px;
+    }
+
+    .category-sign-v {
+        margin-top: 15px;
+        max-width: 160px;
+    }
+
+}
+
+
+// Footer Styling Starts Here
+
+.footer-wrap {
+    background: #ffffff;
+    border: none;
+    border-radius: 40px 40px 0px 0px;
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    box-shadow: 6px 0px 6px rgba(0, 0, 0, 0.05);
+
+    hr {
+        width: 100%;
+        color: $lightcolor;
+    }
+
+    span {
+        text-align: left;
+        size: 14px;
+        font-weight: 700;
+        color: $defaultcolor;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+}
+
+
+
+// Editing Footer styling on Mobile
+
+@media(max-width:760px) {
+
+    .footer-wrap {
+        text-align: center;
+        justify-content: center;
+
+        span {
+            text-align: center;
+        }
+    }
+
+}
+
+
+
+// Signle Post Styling Starts Here
+
+.single-post {
+    @include divController(#ffffff, 20px, auto, 100%);
+    padding: 20px;
+    margin-top: 10px;
+}
+
+
+.single-tags {
+    @include divController(#e6e6e6, 40px, auto, 100%);
+    padding: 20px;
+    margin-top: 15px;
+
+    span {
+        color: $defaultcolor;
+        font-size: 16px;
+        font-weight: 700;
+
+        a {
+            background: $accentcolor;
+            border-radius: 40px;
+            border: none;
+            text-decoration: none;
+            font-weight: 700;
+            color: $defaultcolor;
+            padding: 5px 15px 5px 15px;
+            margin-left: 10px;
+        }
+
+        a:hover {
+            background: $defaultcolor;
+            color: $accentcolor;
+            transition: 0.5s ease-in-out;
+        }
+
+    }
+}
+
+
+.comment-icon {
+    width: 45px !important;
+    height: auto !important;
+}
+
+
+.single-post-wrapper {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    h1 {
+        @include textController(36px, none, $defaultcolor , 700, none);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+}
+
+.single-post-body {
+    @include divController(#ffffff, 20px, auto, 100%);
+    padding: 50% 40px 40px 40px;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 25px;
+    gap: 20px;
+
+    a {
+        padding: 20px;
+        font-size: 20px;
+        font-weight: 700;
+        text-decoration: none;
+        color: $accentcolor;
+        text-transform: uppercase;
+    }
+
+    a:hover {
+        color: $defaultcolor;
+        transition: 0.5s ease-in-out;
+    }
+
+    blockquote {
+        background: $background;
+        border-width: 0px 0px 0px 6px;
+        border-style: solid !important;
+        border-color: $accentcolor;
+        border-radius: 10px;
+        padding: 20px;
+        color: $defaultcolor;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    }
+
+}
+
+.single-p-category {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    color: $defaultcolor;
+    font-size: 400;
+    font-size: 20px;
+}
+
+
+// Styling the Comment Section
+
+.comment-respond {
+    @include divController(#ffffff, 20px, auto, 100%);
+    padding: 40px;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    h3 {
+        color: $defaultcolor;
+        font-weight: 700;
+        font-size: 32px;
+    }
+
+    a {
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        color: $accentcolor;
+        text-transform: uppercase;
+    }
+
+    a:hover {
+        color: $defaultcolor;
+        transition: 0.5s ease-in-out;
+    }
+
+    textarea {
+        border: solid 2px $lightcolor !important;
+        padding: 20px;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    textarea:focus {
+        border: solid 3px $accentcolor !important;
+        transition: 0.5s ease-in-out;
+        outline: none !important;
+    }
+
+    input[type=submit] {
+        @include buttonController($accentcolor, $defaultcolor);
+        margin-top: 10px;
+        @include textController(14px, uppercase, $defaultcolor , 700, 24%);
+    }
+
+    input[type=submit]:hover {
+        @include buttonController($defaultcolor, $accentcolor );
+        transition: 0.5s ease-in-out;
+    }
+
+}
+
+.d-index-wrapper {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+.post-comment {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    h3 {
+        color: $defaultcolor;
+        font-weight: 700;
+        font-size: 24px;
+        margin-bottom: 25px;
+        border-style: solid !important;
+        border-color: $lightcolor;
+        border-width: 0px 0px 1px 0px;
+        outline: none;
+        padding-bottom: 20px;
+    }
+
+    a {
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        color: $accentcolor;
+        text-transform: uppercase;
+    }
+
+    a:hover {
+        color: $defaultcolor;
+        transition: 0.5s ease-in-out;
+    }
+
+    textarea {
+        border: solid 2px $lightcolor !important;
+        padding: 20px;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    textarea:focus {
+        border: solid 3px $accentcolor !important;
+        transition: 0.5s ease-in-out;
+        outline: none !important;
+    }
+
+    input[type=submit] {
+        @include buttonController($accentcolor, $defaultcolor);
+        margin-top: 10px;
+        @include textController(14px, uppercase, $defaultcolor , 700, 24%);
+    }
+
+    input[type=submit]:hover {
+        @include buttonController($defaultcolor, $accentcolor );
+        transition: 0.5s ease-in-out;
+    }
+
+    img {
+        border-radius: 50% !important;
+        width: 45px;
+        height: 45px;
+        margin: 15px;
+    }
+
+    ol {
+
+        li {
+            list-style-type: none;
+            list-style-position: inside;
+        }
+    }
+}
+
+
+.comment-form {
+
+
+
+    input {
+        @include inputController(#ffffff, #bcbcbc, #bcbcbc, #262626);
+    }
+
+    input:focus {
+        @include inputController(#ffffff, $accentcolor , #bcbcbc, $defaultcolor );
+        outline: none;
+    }
+
+    button {
+        @include buttonController(#36ACA5, #ffffff);
+        padding: 15px;
+        min-width: 100%;
+    }
+
+    button:hover {
+        @include buttonController(#262626, #ffffff);
+        padding: 15px;
+        min-width: 100%;
+        transform: scale(1.13, 1.13);
+        transition: 0.5s ease-in-out;
+
+    }
+
+    input[type=checkbox] {
+        width: 25px;
+        height: 25px;
+        border: 2px solid $lightcolor !important;
+    }
+
+    input[type=checkbox]:hover {
+        background: $lightcolor;
+        transition: 0.5s ease-in-out;
+    }
+
+    input[type=checkbox]:checked {
+        background-color: $accentcolor !important;
+        border: none 0px none !important;
+    }
+
+    input[type=submit] {
+        width: auto;
+    }
+
+}
+
+.required {
+    color: #F25E5E;
+    font-weight: 700;
+}
+
+.comment-body {
+    padding: 20px;
+    border-style: solid !important;
+    border-color: $lightcolor;
+    border-width: 0px 0px 2px 0px;
+    outline: none;
+}
+
+.comment-meta {
+    background: #ffffff;
+    border: none;
+    border-radius: 40px;
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+
+    p {
+        font-size: 16px;
+        color: $defaultcolor;
+        font-weight: 400;
+    }
+
+}
+
+.comment-form-cookies-consent {
+    display: flex;
+    gap: 1rem;
+    text-align: left;
+    justify-content: left;
+    margin-top: 10px;
+
+}
+
+
+// Adjusting the comment Section for Mobile
+
+@media(max-width:760px) {
+
+    .post-comment {
+
+        padding: 5px;
+
+        ol {
+
+            width: 100%;
+            padding-left: 0px !important;
+
+
+            li {
+                margin: 0px !important;
+                padding-left: 0px !important;
+                list-style-position: inside;
+                display: table;
+                margin: 0 auto;
+            }
+
+        }
+    }
+
+    .comment-meta {
+
+        a {
+            font-size: 12px;
+        }
+    }
+
+    .comment-body {
+        margin-left: 0px !important;
+
+
+    }
+
+    .single-post-body {
+        padding: 5px;
+
+        a {
+            font-size: 14px;
+        }
+    }
+
+    .comment-respond {
+        padding: 25px 10px 25px 10px;
+
+        input[type=submit] {
+            width: 100%;
+        }
+
+        input[type=checkbox] {
+            width: 45px;
+            height: 45px;
+            border: 2px solid $lightcolor !important;
+        }
+    }
+
+
+}
+
+
+
+// Next Previous Post Styling
+
+.post-nav {
+    background: $accentcolor;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    span {
+        @include textController(12px, uppercase, #ffffff, 700, 4px);
+    }
+
+    a {
+        color: $defaultcolor;
+        font-size: 24px;
+        text-decoration: none;
+        margin-top: 10px;
+        font-weight: 700;
+    }
+
+    a:hover {
+        color: #ffffff;
+        transition: 0.5s ease-in-out;
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #ffffff;
+    }
+
+}
+
+
+.alignL {
+    text-align: left;
+    justify-content: left;
+    width: 100%;
+    border-style: solid !important;
+    border-color: #ffffff;
+    border-width: 0px 1px 0px 0px;
+}
+
+.alignR {
+    text-align: right;
+    justify-content: right;
+    width: 100%;
+}
+
+
+@media(max-width:760px) {
+
+    .alignL {
+        border: none !important;
+    }
+
+    .alignR {
+        text-align: left;
+        justify-content: left;
+        border-style: solid !important;
+        border-color: #ffffff;
+        border-width: 1px 0px 0px 0px;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+}
+
+
+// Styling the category links in the single post 
+
+.single-p-category {
+    background: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    a {
+        background: $defaultcolor;
+        color: #ffffff;
+        text-decoration: none;
+        border: none;
+        border-radius: 40px;
+        padding: 10px 25px 10px 25px;
+        width: auto;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-right: 15px;
+        height: 100%;
+    }
+
+    a:hover {
+        background: $accentcolor;
+        color: $defaultcolor;
+        transition: 0.5s ease-in-out;
+    }
+
+
+}
+
+.social-share {
+
+    text-align: right;
+    justify-content: right;
+    margin: auto;
+    width: 100%;
+
+    span {
+        font-size: 26px;
+        font-weight: 700;
+        margin-top: -20px;
+    }
+
+
+    a {
+        background: none !important;
+        text-decoration: none;
+        margin: 0px;
+    }
+
+    a:hover {
+        background: none;
+        text-decoration: none;
+        transform: scale(1.13, 1.13);
+        transition: 0.5s ease-in-out;
+    }
+
+    img {
+        width: 35px;
+        height: 35px;
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+
+}
+
+
+@media(max-width:760px) {
+
+    .single-p-category {
+        text-align: center;
+        justify-content: center;
+
+        a {
+            margin-bottom: 10px;
+        }
+    }
+
+    .social-share {
+        text-align: center;
+        justify-content: center;
+
+        span {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        img {
+            margin-top: 15px;
+            width: 45px;
+            height: 45px;
+        }
+
+        a {
+            padding: 0px;
+        }
+
+    }
+
+
+}
+
+// Styling the Head of the Category Template
+
+.category-wrapper {
+    h1 {
+        font-size: 32px;
+        font-weight: 700;
+        color: $defaultcolor;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        span {
+            color: $accentcolor;
+        }
+
+    }
+}
+
+
+.category-header {
+    span {
+        @include textController(14px, uppercase, #ffffff, 700, 4px);
+    }
+
+    h1 {
+        @include textController(46px, none, #ffffff, 400, none);
+        margin-top: 15px;
+    }
+}
+
+
+.tag-total {
+    margin-top: 5%;
+    @include divController(#ffffff, 40px, auto, auto);
+    padding: 5px 20px 5px 20px;
+    float: right;
+    color: $defaultcolor;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    span {
+        background: $accentcolor;
+        color: $defaultcolor;
+        border: none;
+        border-radius: 50% !important;
+        min-width: 45px;
+        min-height: 45px;
+        padding: 5px;
+        margin-left: 10px;
+        font-size: 26px;
+        font-weight: 700;
+        text-align: center;
+        display: inline-flex;
+        justify-content: center;
+    }
+}
+
+// Adjusting Tag Total Class in mobile view
+
+@media(max-width:760px) {
+    .tag-total {
+        float: left;
+    }
+
+}
+
+
+// Styling the Wordpress Pagination
+
+.nav-links {
+    @include divController(#ffffff, 20px, auto, 100%);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+
+    a {
+        color: $lightcolor;
+        font-size: 26px;
+        font-weight: 700;
+        text-decoration: none;
+        margin-left: 2%;
+    }
+
+    a:hover {
+        color: $accentcolor;
+        transition: 0.5s ease-in-out;
+    }
+
+    a:active {
+        color: $defaultcolor;
+    }
+
+    span {
+        font-size: 26px;
+        color: $accentcolor;
+        font-weight: 700;
+        margin-left: 2%
+    }
+
+
+}
+
+
+// Adjusting the WP Pagination in Mobile View
+
+@media(max-width:760px) {
+    .nav-links {
+        text-align: center;
+        justify-content: center;
+    }
+
+}
+
+
+// Adjusting the Tag result page Total Count Text 
+
+.tag-header {
+    margin-bottom: 10px;
+
+    h3 {
+        font-size: 20px;
+        font-weight: 400;
+        color: $defaultcolor;
+    }
+
+    span {
+        color: $accentcolor;
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+
+
+.no-posts {
+    @include textController(26px, none, $defaultcolor , 700, none);
+    @include divController(#ffffff, 20px, auto, auto);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-style: solid !important;
+    border-width: 0px 0px 0px 6px;
+    border-color: $accentcolor;
+    margin-top: 25px;
+
+    h4 {
+        @include textController(14px, uppercase, $lightcolor, 700, 4px);
+        margin-bottom: 10px;
+    }
+}
+
+
+// Styling the Error Page
+
+.error-page {
+
+    margin-top: 35px;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 35px;
+
+    h1 {
+        @include textController(64px, none, $defaultcolor , 700, none);
+        text-align: center;
+    }
+
+    img {
+        width: 35%;
+        height: auto;
+        margin-top: 25px;
+    }
+
+    p {
+        @include textController(20px, none, $defaultcolor , 400, none);
+        margin-top: 25px;
+    }
+
+    button {
+        @include buttonController($accentcolor, $defaultcolor );
+        margin-top: 20px;
+        @include textController(16px, uppercase, $defaultcolor , 700, 4px);
+        cursor: grab;
+    }
+
+    button:hover {
+        @include buttonController($defaultcolor, #ffffff);
+        transform: scale(1.13, 1.13);
+        transition: 0.5s ease-in-out;
+    }
+}
+
+
+
+// Styling the Contact Page Template 
+
+.info-block {
+    @include divController(#ffffff, 20px, auto, 100%);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    vertical-align: auto;
+
+    img {
+        width: 100%;
+        float: left;
+    }
+
+    span {
+        @include textController(12px, uppercase, $lightcolor , 700, 4px);
+    }
+
+    p {
+        @include textController(16px, none, $defaultcolor , 400, none);
+    }
+
+
+
+}
+
+
+.info-block-text {
+    margin-top: 5%;
+}
+
+
+.ventus-form {
+    @include divController(#ffffff, 20px, auto, 100%);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    vertical-align: auto;
+
+    input {
+        @include inputController(#ffffff, $lightcolor , $lightcolor , $defaultcolor );
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    input:focus {
+        @include inputController(#ffffff, $accentcolor , $lightcolor , $defaultcolor );
+        border-width: 3px;
+        transition: 0.5s ease-in-out
+    }
+
+    textarea {
+        border-style: solid !important;
+        border-width: 2px;
+        border-color: $lightcolor;
+        color: $defaultcolor;
+        border-radius: 20px;
+        width: 100%;
+        outline: none;
+        min-height: 140px;
+        padding: 10px;
+    }
+
+    textarea:focus {
+        border-width: 3px;
+        border-color: $accentcolor;
+        transition: 0.5s ease-in-out;
+    }
+
+    input[type=submit] {
+        @include buttonController($accentcolor, $defaultcolor );
+        margin-top: 20px;
+        width: auto;
+        padding: 10px 25px 10px 25px;
+        @include textController(14px, uppercase, $defaultcolor , 700, 4px);
+    }
+
+    input[type=submit]:hover {
+        background: $defaultcolor;
+        color: #ffffff;
+        transform: scale(1.03, 1.03);
+        transition: 0.5s ease-in-out;
+    }
+
+    button {
+        @include buttonController($accentcolor, $defaultcolor );
+        margin-top: 20px;
+        width: auto;
+        padding: 10px 25px 10px 25px;
+        @include textController(14px, uppercase, $defaultcolor , 700, 4px);
+    }
+
+    button:hover {
+        background: $defaultcolor;
+        color: #ffffff;
+        transform: scale(1.03, 1.03);
+        transition: 0.5s ease-in-out;
+    }
+
+    label {
+        @include textController(12px, uppercase, $lightcolor , 700, 4px);
+    }
+
+    span {
+        @include textController(16px, none, #e94e4e, 700, none);
+    }
+
+    h1 {
+        @include textController(32px, none, $defaultcolor , 700, none);
+    }
+
+    p {
+        @include textController(14px, none, $defaultcolor , 400, none);
+    }
+
+}
+
+
+// Adjusting the Contact Template Classes in Mobile View
+
+@media(max-width:760px) {
+    .info-block {
+
+        img {
+            width: 64px;
+            height: auto;
+            justify-self: center;
+        }
+    }
+
+    .ventus-form {
+        input[type=submit] {
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+
+}
